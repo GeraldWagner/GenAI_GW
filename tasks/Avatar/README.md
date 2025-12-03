@@ -5,10 +5,11 @@ Ein einfacher, CV-basierter Chatbot, der Fragen zu einem Lebenslauf beantwortet.
 ## Projektstruktur
 
 ```
-lessons/Avatar/
+tasks/Avatar/
 ├── README.md                      # Diese Datei
 ├── CV.md                          # Beispiel-Lebenslauf (Max Mustermann)
-└── Avatar_Chatbot_v0.1.ipynb     # Hauptimplementierung (Jupyter Notebook)
+├── Avatar_Chatbot_v0.1.ipynb     # Simple Chain (Basis-Implementation)
+└── Avatar_Chatbot_v0.2.ipynb     # LangGraph + Memory (Follow-ups, Multi-User)
 ```
 
 ## Funktionalität
@@ -46,13 +47,24 @@ Antwort: "Das weiss ich leider nicht"
 - **Pattern**: Simple Chain (Prompt → LLM → StrOutputParser)
 - **Utilities**: genai_lib für Setup und Markdown-Ausgabe
 
-## Verwendung
+## Quick Start
 
-### Jupyter Notebook starten
+### v0.1 (Simple Chain - Basis)
 
 ```bash
-cd /Users/wagnerg/Development/playground/GenAI_GW/lessons/Avatar/
-jupyter notebook Avatar_Chatbot_v0.1.ipynb
+jupyter notebook tasks/Avatar/Avatar_Chatbot_v0.1.ipynb
+```
+
+### v0.2 (LangGraph - MIT MEMORY!) 🚀
+
+```bash
+jupyter notebook tasks/Avatar/Avatar_Chatbot_v0.2.ipynb
+```
+
+**Wichtig:** LangGraph brauchst du, deswegen:
+
+```bash
+pip install langgraph
 ```
 
 ### Ablauf im Notebook
@@ -183,14 +195,28 @@ WICHTIGE REGELN:
 - ❌ **Statischer Content**: CV wird bei jeder Anfrage mitgeschickt
 - ❌ **Modell-abhängig**: Halluzinationen sind immer möglich (reduziert durch Prompt-Engineering)
 
-## Roadmap für v0.2 und später
+## Roadmap
 
-### v0.2: Erweiterte Funktionalität
+### v0.1: Simple Chain ✅ (fertig)
 
-- [ ] Konversations-Memory für Follow-up-Fragen
-- [ ] Strukturierte Ausgabe mit Pydantic
-- [ ] Batch-Anfragen für mehrere Fragen parallel
-- [ ] Few-Shot-Beispiele für bessere Antworten
+- ✅ CV-basierter Q&A
+- ✅ Deterministische Antworten (temperature=0.0)
+- ✅ Test-Suite für In-CV / Out-of-CV Fragen
+
+### v0.2: LangGraph + Memory 🚀 (JETZT!)
+
+- ✅ Konversations-Memory für Follow-up-Fragen
+- ✅ Multi-Thread Support (mehrere User gleichzeitig)
+- ✅ Automatisches State Management via Checkpointer
+- ⏳ Strukturierte Ausgabe mit Pydantic (optional)
+- ⏳ Batch-Anfragen für mehrere Fragen parallel
+- ⏳ Few-Shot-Beispiele für bessere Antworten
+
+### v0.3: Memory Management
+
+- [ ] Trimming-Strategie (begrenzte Context-Größe)
+- [ ] Summarization für lange Sessions
+- [ ] SQLite Checkpointer (persistente Sessions)
 
 ### v0.3: RAG-System
 
