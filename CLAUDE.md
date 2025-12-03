@@ -16,9 +16,19 @@ GenAI_GW/
 │   ├── 03_skript/       # Course documentation and presentations
 │   ├── 04_modul/        # genai_lib Python package (reusable modules)
 │   └── 05_prompt/       # Prompt templates and examples
-├── tasks/               # Task definitions
+├── tasks/               # Task definitions and assignments (student solutions)
 └── CLAUDE.md           # This file
 ```
+
+## File Storage Guidelines
+
+⚠️ **IMPORTANT:** When creating or modifying files:
+
+- **✅ Save to `@tasks/`** - Exercise solutions, assignments, and student work (M0X_A1, M0X_A2, etc.)
+- **❌ DO NOT save to `@lessons/`** - This directory contains original course materials only
+- `lessons/GenAI/` is read-only for course content reference and development
+
+This ensures course materials remain clean and separates student/exercise work from official course content.
 
 ## Core Technology Stack
 
