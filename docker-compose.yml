@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: genai_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+      - ./.env:/workspace/.env:ro
+    environment:
+      - OPENAI_API_KEY
+      - HF_TOKEN
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=
+    working_dir: /workspace
+    restart: unless-stopped
+    networks:
+      - genai_network
+
+networks:
+  genai_network:
+    name: genai_network
+    driver: bridge

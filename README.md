@@ -46,6 +46,35 @@ HUGGINGFACE_API_KEY=hf_...
 jupyter notebook lessons/GenAI/01_notebook/
 ```
 
+## 🐳 Docker Setup (Lokale Entwicklung)
+
+Für lokale Entwicklung **ohne** Google Colab, nutze Docker (schnellere Installation):
+
+### Quick Start mit Docker
+
+```bash
+# 1. Docker Image bauen (erste Build: ~2-3 Min)
+docker-compose build
+
+# 2. JupyterLab starten
+docker-compose up
+
+# 3. Browser öffnen
+# http://localhost:8888
+```
+
+**Vorteile:**
+- ✅ Alle Dependencies vorinstalliert (kein `pip install` im Notebook)
+- ✅ Schnelle Startup (~3-5 Sekunden)
+- ✅ Live Code Editing (Änderungen sofort sichtbar)
+- ✅ Kompaktes Image (~500 MB, nur LangChain + OpenAI für v0.1/v0.2)
+
+**Details:** Siehe [docs/DOCKER_SETUP.md](docs/DOCKER_SETUP.md)
+
+**Requirements:**
+- Docker Desktop für Mac installiert
+- `.env` mit API Keys (siehe Quick Start oben)
+
 ## 🧹 Notebooks bereinigen
 
 Um Outputs aus Notebooks im `tasks/` zu entfernen:
